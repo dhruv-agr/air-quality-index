@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning API</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js"></script> -->
+</head>
+<body>
+    <form id="myForm">
+        <input class = "textbox" type="text" name="state" placeholder="State">
+        <input class = "textbox" type="text" name="city" placeholder="City">
+        <button id="get" type="submit">Get</button>
+        
+    </form>
+
+    
+    <p id="apidata"></p>
+    <script>
+        const myForm=document.getElementById("myForm")
+
+        myForm.addEventListener("submit",function (e){
+
+            e.preventDefault()
+            
+            const formData = new FormData(this)
+            const searchParams = new URLSearchParams()
+
+            for (const pair of formData){
+                searchParams.append(pair[0],pair[1])
+            }
+
+            fetch("/",{
+                method:"post",
+                body:searchParams
+            })
+            .then(resp=>resp.text())
+            .then(function(resp){
+                document.getElementById("apidata").innerHTML=resp
+            })
+                
+        })
+
+       
+        
+    </script>
+    
+
+</body>
+</html>

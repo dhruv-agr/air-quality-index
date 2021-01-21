@@ -1,0 +1,18 @@
+#get{
+    background-color:lightsteelblue;
+    border: 2px solid rgb(10, 211, 167);
+    color: rgb(61, 61, 194);
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+    position:absolute;
+    margin: 50px;
+}
+
+#get:active{
+    transform: translateY(4px);
+}
+
+.textbox{
+    width:100px;
+}
